@@ -3,9 +3,9 @@
 
     <!-- Detail -->
     <string name="detail_title_info">Descrição</string>
-    <string name="placeholder">Não informado.</string>
 
-
+    <!-- Favourite -->
+    <string name="favourite_title_info">Favoritos</string>
 
     <!-- Error Messages -->
     <string name="gists_no_network">Sem conexão. Verifique a sua internet</string>

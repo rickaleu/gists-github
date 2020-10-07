@@ -17,11 +17,16 @@ class FavouriteRepositoryImpl : FavouriteRepository {
         fav.save(favouriteEntity)
     }
 
-    override suspend fun getFavouriteList(fav: FavouriteDAO,
+    override suspend fun deleteFavourite(id: Int, fav: FavouriteDAO) {
+        fav.delete(id)
+    }
+
+
+    override suspend fun getFavouriteList(
+        fav: FavouriteDAO,
         callback: (result: FavouriteListResult.Success) -> Unit
     ) {
         val database = fav.getFavourite()
-
         callback.invoke(FavouriteListResult.Success(database))
     }
 

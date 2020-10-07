@@ -13,7 +13,7 @@ import br.com.ricardo.gistsgithub.presentation.gistsdetail.ui.GistsDetailActivit
 import br.com.ricardo.gistsgithub.presentation.gistsfavourite.ui.GistsFavouriteActivity
 import br.com.ricardo.gistsgithub.presentation.gistsfavourite.viewmodel.FavouriteViewModel
 import br.com.ricardo.gistsgithub.presentation.gistslist.ui.adapter.GistsListAdapter
-import br.com.ricardo.gistsgithub.presentation.gistslist.ui.adapter.ItemListener
+import br.com.ricardo.gistsgithub.utils.ItemGistsListener
 import br.com.ricardo.gistsgithub.presentation.gistslist.viewmodel.GistsViewModel
 import br.com.ricardo.gistsgithub.utils.ConnectionUtils
 import br.com.ricardo.gistsgithub.utils.GistsGitHubConstants
@@ -31,7 +31,7 @@ class GistsListActivity : AppCompatActivity() {
     }
 
     private val connectionUtils = ConnectionUtils(this)
-    private lateinit var favouriteListener : ItemListener
+    private lateinit var favouriteGistsListener : ItemGistsListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +55,10 @@ class GistsListActivity : AppCompatActivity() {
                         LinearLayoutManager.VERTICAL, false
                     )
                     setHasFixedSize(true)
-                    adapter = GistsListAdapter(gist, favouriteListener) { gist ->
+                    adapter = GistsListAdapter(gist, favouriteGistsListener) { gist ->
                         this@GistsListActivity.startActivity(
-                            GistsDetailActivity.getStartIntent(this@GistsListActivity, gist)
+//                            GistsDetailActivity.getStartGistIntent(this@GistsListActivity, gist)
+                        GistsDetailActivity.getStartIntent(this@GistsListActivity, gist)
                         )
                     }
                 }
@@ -74,20 +75,21 @@ class GistsListActivity : AppCompatActivity() {
             }
         })
 
-        favouriteViewModel.starFavourted.observe(this, Observer {
-            it?.let { favourited ->
-                if (favourited) {
+        favouriteViewModel.starMarked.observe(this, Observer {
+            it?.let { marked ->
+                if (marked) {
                     Toast.makeText(this, "Favoritado", Toast.LENGTH_SHORT).show()
                 }
             }
         })
 
 
-        favouriteListener = object : ItemListener {
+        favouriteGistsListener = object : ItemGistsListener {
             override fun favouriteGist(gist: Gist) {
                 favouriteViewModel.favouriteGist(gist)
             }
 
+            override fun getIdFav(id: Int) {}
         }
 
         gists_icon_favourite.setOnClickListener {

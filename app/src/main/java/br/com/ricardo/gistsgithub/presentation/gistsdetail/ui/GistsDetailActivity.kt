@@ -7,24 +7,28 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import br.com.ricardo.gistsgithub.R
+import br.com.ricardo.gistsgithub.data.local.FavouriteEntity
 import br.com.ricardo.gistsgithub.data.model.Gist
 import br.com.ricardo.gistsgithub.databinding.ActivityGistsDetailBinding
 import br.com.ricardo.gistsgithub.presentation.gistsdetail.viewmodel.GistsDetailViewModel
 import kotlinx.android.synthetic.main.activity_gists_list.*
+import java.io.Serializable
+import kotlin.reflect.KClass
 
 class GistsDetailActivity : AppCompatActivity() {
 
     companion object {
-        private const val EXTRA_GIST = "gist"
+        private const val EXTRA_OBJ = "obj"
 
-        fun getStartIntent(context: Context, gist: Gist): Intent {
+        fun <T> getStartIntent(context: Context, obj: T): Intent {
             return Intent(context, GistsDetailActivity::class.java).apply {
-                putExtra(EXTRA_GIST, gist)
+                putExtra(EXTRA_OBJ, obj as Serializable)
             }
         }
     }
 
     private lateinit var gistObject: Gist
+
     private val viewModel: GistsDetailViewModel by viewModels()
     private val binding: ActivityGistsDetailBinding by lazy {
         DataBindingUtil.setContentView(this, R.layout.activity_gists_detail)
@@ -33,7 +37,7 @@ class GistsDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        gistObject = intent.getSerializableExtra(EXTRA_GIST) as Gist
+        gistObject = intent.getSerializableExtra(EXTRA_OBJ) as Gist
 
         setSupportActionBar(binding.gistsDetailToolbar).apply {
             title = gistObject.owner.login
@@ -43,13 +47,12 @@ class GistsDetailActivity : AppCompatActivity() {
 
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
-    }
 
-    override fun onResume() {
-        super.onResume()
+
         viewModel.getGistInfos(gistObject)
         GistsDetailViewModel.loadImage(binding.gitDetailImageAvatar, gistObject.owner.avatar)
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
