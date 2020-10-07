@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">Gists GitHub</string>
 
+    <!-- GistsList -->
+    <string name="gists_toast_title_mark">Favoritado</string>
+
     <!-- Detail -->
     <string name="detail_title_info">Descrição</string>
 
     <!-- Favourite -->
     <string name="favourite_title_info">Favoritos</string>
+    <string name="favourites_toast_title_unmark">Desfavoritado</string>
 
     <!-- Error Messages -->
     <string name="gists_no_network">Sem conexão. Verifique a sua internet</string>

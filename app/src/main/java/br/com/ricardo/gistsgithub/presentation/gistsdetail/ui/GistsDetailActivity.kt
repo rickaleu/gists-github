@@ -7,13 +7,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import br.com.ricardo.gistsgithub.R
-import br.com.ricardo.gistsgithub.data.local.FavouriteEntity
 import br.com.ricardo.gistsgithub.data.model.Gist
 import br.com.ricardo.gistsgithub.databinding.ActivityGistsDetailBinding
 import br.com.ricardo.gistsgithub.presentation.gistsdetail.viewmodel.GistsDetailViewModel
-import kotlinx.android.synthetic.main.activity_gists_list.*
 import java.io.Serializable
-import kotlin.reflect.KClass
 
 class GistsDetailActivity : AppCompatActivity() {
 

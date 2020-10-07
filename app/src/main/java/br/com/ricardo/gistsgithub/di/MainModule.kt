@@ -1,9 +1,6 @@
 package br.com.ricardo.gistsgithub.di
 
-import android.content.Context
 import br.com.ricardo.gistsgithub.data.local.FavouriteDAO
-import br.com.ricardo.gistsgithub.data.local.FavouriteDatabase
-import br.com.ricardo.gistsgithub.presentation.gistsfavourite.FavouriteParams
 import br.com.ricardo.gistsgithub.presentation.gistsfavourite.repository.FavouriteRepository
 import br.com.ricardo.gistsgithub.presentation.gistsfavourite.repository.FavouriteRepositoryImpl
 import br.com.ricardo.gistsgithub.presentation.gistsfavourite.viewmodel.FavouriteViewModel

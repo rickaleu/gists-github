@@ -2,7 +2,6 @@ package br.com.ricardo.gistsgithub.presentation.gistsfavourite.repository
 
 import br.com.ricardo.gistsgithub.data.FavouriteListResult
 import br.com.ricardo.gistsgithub.data.local.FavouriteDAO
-import br.com.ricardo.gistsgithub.data.local.FavouriteEntity
 import br.com.ricardo.gistsgithub.presentation.gistsfavourite.FavouriteParams
 
 interface FavouriteRepository {

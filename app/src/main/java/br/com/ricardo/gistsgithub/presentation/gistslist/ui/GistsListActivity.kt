@@ -57,7 +57,6 @@ class GistsListActivity : AppCompatActivity() {
                     setHasFixedSize(true)
                     adapter = GistsListAdapter(gist, favouriteGistsListener) { gist ->
                         this@GistsListActivity.startActivity(
-//                            GistsDetailActivity.getStartGistIntent(this@GistsListActivity, gist)
                         GistsDetailActivity.getStartIntent(this@GistsListActivity, gist)
                         )
                     }
@@ -78,7 +77,7 @@ class GistsListActivity : AppCompatActivity() {
         favouriteViewModel.starMarked.observe(this, Observer {
             it?.let { marked ->
                 if (marked) {
-                    Toast.makeText(this, "Favoritado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.gists_toast_title_mark, Toast.LENGTH_SHORT).show()
                 }
             }
         })

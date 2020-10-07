@@ -65,7 +65,7 @@ class GistsFavouriteActivity : AppCompatActivity() {
         viewModel.starUnmarked.observe(this, Observer {
             it?.let { unmarked ->
                 if (unmarked) {
-                    Toast.makeText(this, "Desfavoritado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.favourites_toast_title_unmark, Toast.LENGTH_SHORT).show()
                 }
             }
         })

@@ -2,7 +2,6 @@ package br.com.ricardo.gistsgithub.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import br.com.ricardo.gistsgithub.data.model.Favourite
 import br.com.ricardo.gistsgithub.presentation.gistsfavourite.FavouriteParams
 import java.io.Serializable
 
@@ -22,11 +21,3 @@ fun FavouriteParams.toFavouriteEntity() : FavouriteEntity {
         )
     }
 }
-
-//fun FavouriteEntity.toFavourite() : Favourite {
-//    return Favourite(
-//        id = this.id,
-//        login = this.login,
-//        avatar = this.avatar
-//    )
-//}
