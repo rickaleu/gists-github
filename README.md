@@ -57,7 +57,7 @@ Mais Pontos:
 A arquitetura utilizada foi a MVVM (Model View ViewModel), separados por features com 3 camadas: repository, viewmodel e ui.
 
 <p align="center">
-  <img src="images/mvp.png" align="center" width=350>
+  <img src="images/mvvm.png" align="center" width=350>
 </p>
 
 <a name="resources" />
