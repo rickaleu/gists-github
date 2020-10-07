@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Gists GitHub</string>
+
+    <!-- Detail -->
+    <string name="detail_title_info">Descrição</string>
+    <string name="placeholder">Não informado.</string>
+
+
+
+    <!-- Error Messages -->
+    <string name="gists_no_network">Sem conexão. Verifique a sua internet</string>
+    <string name="gists_view_flipper_error_422">Entidade não processada</string>
+    <string name="gists_view_flipper_error_500">Erro do Servidor</string>
+</resources>
